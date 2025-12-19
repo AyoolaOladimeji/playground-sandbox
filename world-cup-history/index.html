@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIFA World Cup History | Complete Tournament Archive</title>
+  <meta name="description" content="Complete history of FIFA World Cup tournaments from 1930 to 2022. Winners, top scorers, Golden Ball, Golden Glove and all individual awards.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <span class="trophy-icon">🏆</span>
+          <h1>World Cup History</h1>
+        </div>
+        <nav class="nav">
+          <a href="#tournaments" class="nav-link active">Tournaments</a>
+          <a href="#winners" class="nav-link">Winners</a>
+          <a href="#top-scorers" class="nav-link">Top Scorers</a>
+          <a href="#stats" class="nav-link">Statistics</a>
+        </nav>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h2>The Complete History of FIFA World Cup</h2>
+        <p>Explore every tournament from Uruguay 1930 to Qatar 2022</p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="stat-number">22</span>
+            <span class="stat-label">Tournaments</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-number">8</span>
+            <span class="stat-label">Winners</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-number">2500+</span>
+            <span class="stat-label">Goals Scored</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Facts Ticker -->
+  <div class="facts-ticker">
+    <div class="container">
+      <div class="ticker-content" id="factsTicker">
+        <!-- Facts will be populated by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Tournament Timeline -->
+  <section id="tournaments" class="section tournaments-section">
+    <div class="container">
+      <h2 class="section-title">Tournament History</h2>
+      <p class="section-subtitle">Click on any tournament to see detailed information</p>
+
+      <div class="tournament-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="1930-1950">1930-1950</button>
+        <button class="filter-btn" data-filter="1954-1970">1954-1970</button>
+        <button class="filter-btn" data-filter="1974-1990">1974-1990</button>
+        <button class="filter-btn" data-filter="1994-2010">1994-2010</button>
+        <button class="filter-btn" data-filter="2014-2022">2014-2022</button>
+      </div>
+
+      <div class="tournament-grid" id="tournamentGrid">
+        <!-- Tournament cards will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Tournament Detail Modal -->
+  <div class="modal" id="tournamentModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-body" id="modalBody">
+        <!-- Modal content will be populated by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Winners Section -->
+  <section id="winners" class="section winners-section">
+    <div class="container">
+      <h2 class="section-title">World Cup Winners by Country</h2>
+      <p class="section-subtitle">Nations that have lifted the prestigious trophy</p>
+
+      <div class="winners-grid" id="winnersGrid">
+        <!-- Winners will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- All-Time Top Scorers -->
+  <section id="top-scorers" class="section scorers-section">
+    <div class="container">
+      <h2 class="section-title">All-Time Top Scorers</h2>
+      <p class="section-subtitle">The greatest goalscorers in World Cup history</p>
+
+      <div class="scorers-table-wrapper">
+        <table class="scorers-table" id="scorersTable">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th>Country</th>
+              <th>Goals</th>
+              <th>Tournaments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Scorers will be populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section id="stats" class="section stats-section">
+    <div class="container">
+      <h2 class="section-title">World Cup Statistics</h2>
+      <p class="section-subtitle">Fascinating numbers from nearly a century of tournaments</p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">⚽</div>
+          <div class="stat-value" id="totalGoals">0</div>
+          <div class="stat-title">Total Goals</div>
+          <div class="stat-desc">Across all tournaments</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🏟️</div>
+          <div class="stat-value" id="totalMatches">0</div>
+          <div class="stat-title">Total Matches</div>
+          <div class="stat-desc">Since 1930</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🌍</div>
+          <div class="stat-value" id="hostCountries">0</div>
+          <div class="stat-title">Host Nations</div>
+          <div class="stat-desc">Different countries</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">👑</div>
+          <div class="stat-value">5</div>
+          <div class="stat-title">Most Wins</div>
+          <div class="stat-desc">Brazil</div>
+        </div>
+      </div>
+
+      <div class="awards-section">
+        <h3>Individual Awards by Tournament</h3>
+        <div class="awards-grid" id="awardsGrid">
+          <!-- Awards will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="trophy-icon">🏆</span>
+          <span>World Cup History</span>
+        </div>
+        <p class="footer-text">
+          A comprehensive archive of FIFA World Cup tournaments from 1930 to present.
+        </p>
+        <div class="footer-links">
+          <a href="#tournaments">Tournaments</a>
+          <a href="#winners">Winners</a>
+          <a href="#top-scorers">Top Scorers</a>
+          <a href="#stats">Statistics</a>
+        </div>
+        <p class="copyright">
+          &copy; 2024 World Cup History. Data compiled from official FIFA records.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/worldcup-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
