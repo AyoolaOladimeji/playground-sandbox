@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Classic XI Pro Photo Gallery - Team photos, match days, and events">
+  <title>Classic XI Pro | Gallery</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo-placeholder.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-placeholder.svg" alt="Classic XI Pro Logo">
+        <div class="logo-text">
+          <span>CLASSIC XI PRO</span>
+          <span>Football Club</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="players.html">Squad</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="videos.html">Videos</a>
+        <a href="fixtures.html">Fixtures</a>
+        <a href="sponsors.html">Sponsors</a>
+      </nav>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="players.html">Squad</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="videos.html">Videos</a>
+    <a href="fixtures.html">Fixtures</a>
+    <a href="sponsors.html">Sponsors</a>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1><i class="fas fa-camera"></i> Photo Gallery</h1>
+      <p>Capturing the moments that matter</p>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="section">
+    <div class="container">
+      <!-- Filter Buttons -->
+      <div class="filter-buttons" id="galleryFilters">
+        <button class="filter-btn active" data-filter="all">All Photos</button>
+        <button class="filter-btn" data-filter="Match Day">Match Day</button>
+        <button class="filter-btn" data-filter="Training">Training</button>
+        <button class="filter-btn" data-filter="Events">Events</button>
+        <button class="filter-btn" data-filter="Team Photos">Team Photos</button>
+      </div>
+
+      <!-- Upload Button (visible when logged in) -->
+      <div class="text-center" id="galleryUploadBtn" style="margin-bottom: 30px; display: none;">
+        <button class="btn btn-primary" onclick="document.getElementById('galleryUploadModal').classList.add('active')">
+          <i class="fas fa-cloud-upload-alt"></i> Upload Photos
+        </button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="loading-overlay">
+          <div class="spinner"></div>
+          <p>Loading gallery...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+    <img src="" alt="" id="lightboxImg">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- Upload Modal -->
+  <div class="modal-overlay" id="galleryUploadModal">
+    <div class="modal" style="max-width: 500px;">
+      <div class="modal-header" style="padding: 25px 30px;">
+        <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('active')">
+          <i class="fas fa-times"></i>
+        </button>
+        <div>
+          <h2 style="color: var(--white); font-size: 1.3rem;">Upload Photo</h2>
+        </div>
+      </div>
+      <div class="modal-body" style="padding: 25px 30px;">
+        <form id="uploadPhotoForm">
+          <div class="form-group">
+            <label>Photo</label>
+            <input type="file" accept="image/*" id="photoFile" required>
+          </div>
+          <div class="form-group">
+            <label>Caption</label>
+            <input type="text" id="photoCaption" placeholder="Enter a caption..." required>
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select id="photoCategory" required>
+              <option value="Match Day">Match Day</option>
+              <option value="Training">Training</option>
+              <option value="Events">Events</option>
+              <option value="Team Photos">Team Photos</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary login-btn">
+            <i class="fas fa-upload"></i> Upload Photo
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="index.html" class="logo">
+            <img src="assets/logo-placeholder.svg" alt="Classic XI Pro Logo">
+            <div class="logo-text">
+              <span>CLASSIC XI PRO</span>
+              <span>Football Club</span>
+            </div>
+          </a>
+          <p>Excellence on and off the pitch.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="players.html">Squad</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="videos.html">Videos</a>
+            <a href="fixtures.html">Fixtures</a>
+          </div>
+        </div>
+        <div>
+          <h4>The Club</h4>
+          <div class="footer-links">
+            <a href="index.html#about">About Us</a>
+            <a href="sponsors.html">Our Sponsors</a>
+          </div>
+        </div>
+        <div>
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> Classic XI Pro Stadium, Sports Avenue</li>
+            <li><i class="fas fa-envelope"></i> info@classicxipro.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 <span class="text-gold">Classic XI Pro</span> Football Club. All rights reserved.</p>
+        <p style="margin-top: 5px;"><a href="login.html" style="color: rgba(255,255,255,0.25); font-size: 0.75rem;">Admin</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-storage-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

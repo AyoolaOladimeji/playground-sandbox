@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Classic XI Pro Squad - Meet our talented players">
+  <title>Classic XI Pro | Squad</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo-placeholder.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-placeholder.svg" alt="Classic XI Pro Logo">
+        <div class="logo-text">
+          <span>CLASSIC XI PRO</span>
+          <span>Football Club</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="players.html" class="active">Squad</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="videos.html">Videos</a>
+        <a href="fixtures.html">Fixtures</a>
+        <a href="sponsors.html">Sponsors</a>
+      </nav>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="players.html" class="active">Squad</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="videos.html">Videos</a>
+    <a href="fixtures.html">Fixtures</a>
+    <a href="sponsors.html">Sponsors</a>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1><i class="fas fa-users"></i> Our Squad</h1>
+      <p>Meet the talented players of Classic XI Pro</p>
+    </div>
+  </section>
+
+  <!-- Players Section -->
+  <section class="section">
+    <div class="container">
+      <!-- Filter Buttons -->
+      <div class="filter-buttons" id="positionFilters">
+        <button class="filter-btn active" data-filter="all">All Players</button>
+        <button class="filter-btn" data-filter="Goalkeeper">Goalkeepers</button>
+        <button class="filter-btn" data-filter="Defender">Defenders</button>
+        <button class="filter-btn" data-filter="Midfielder">Midfielders</button>
+        <button class="filter-btn" data-filter="Forward">Forwards</button>
+      </div>
+
+      <!-- Players Grid -->
+      <div class="players-grid" id="playersGrid">
+        <div class="loading-overlay">
+          <div class="spinner"></div>
+          <p>Loading players...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Player Profile Modal -->
+  <div class="modal-overlay" id="playerModal">
+    <div class="modal">
+      <div class="modal-header">
+        <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+        <div class="modal-player-img" id="modalPlayerImg">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="modal-player-info">
+          <h2 id="modalPlayerName">Player Name</h2>
+          <span class="position-badge" id="modalPlayerPosition">Position</span>
+          <p class="jersey-number" id="modalPlayerNumber">Jersey #10</p>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-stats-grid" id="modalStats">
+          <div class="modal-stat">
+            <div class="value" id="modalApps">0</div>
+            <div class="label">Appearances</div>
+          </div>
+          <div class="modal-stat">
+            <div class="value" id="modalGoals">0</div>
+            <div class="label">Goals</div>
+          </div>
+          <div class="modal-stat">
+            <div class="value" id="modalAssists">0</div>
+            <div class="label">Assists</div>
+          </div>
+        </div>
+        <div class="modal-details" id="modalDetails">
+          <!-- Populated by JS -->
+        </div>
+        <div class="modal-bio" id="modalBio">
+          <h4>Biography</h4>
+          <p>Player biography goes here...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="index.html" class="logo">
+            <img src="assets/logo-placeholder.svg" alt="Classic XI Pro Logo">
+            <div class="logo-text">
+              <span>CLASSIC XI PRO</span>
+              <span>Football Club</span>
+            </div>
+          </a>
+          <p>Excellence on and off the pitch.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="players.html">Squad</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="videos.html">Videos</a>
+            <a href="fixtures.html">Fixtures</a>
+          </div>
+        </div>
+        <div>
+          <h4>The Club</h4>
+          <div class="footer-links">
+            <a href="index.html#about">About Us</a>
+            <a href="sponsors.html">Our Sponsors</a>
+          </div>
+        </div>
+        <div>
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> Classic XI Pro Stadium, Sports Avenue</li>
+            <li><i class="fas fa-envelope"></i> info@classicxipro.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 <span class="text-gold">Classic XI Pro</span> Football Club. All rights reserved.</p>
+        <p style="margin-top: 5px;"><a href="login.html" style="color: rgba(255,255,255,0.25); font-size: 0.75rem;">Admin</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-storage-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/players.js"></script>
+</body>
+</html>

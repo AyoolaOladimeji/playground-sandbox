@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Classic XI Pro Admin Dashboard">
+  <title>Classic XI Pro | Admin Dashboard</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo-placeholder.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-placeholder.svg" alt="Classic XI Pro Logo">
+        <div class="logo-text">
+          <span>CLASSIC XI PRO</span>
+          <span>Admin Dashboard</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">View Site</a>
+        <a href="admin.html" class="active">Dashboard</a>
+        <button class="btn-login" id="adminLogout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      </nav>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">View Site</a>
+    <a href="admin.html" class="active">Dashboard</a>
+  </nav>
+
+  <!-- Admin Content -->
+  <section class="admin-section">
+    <div class="container">
+      <!-- Auth Check Message -->
+      <div id="adminAuthCheck" class="text-center" style="padding: 100px 20px;">
+        <div class="spinner"></div>
+        <p style="margin-top: 15px; color: var(--mid-gray);">Checking authentication...</p>
+      </div>
+
+      <!-- Admin Dashboard (shown when authenticated) -->
+      <div id="adminDashboard" style="display: none;">
+        <h1 style="margin-bottom: 10px;">Admin Dashboard</h1>
+        <p style="color: var(--mid-gray); margin-bottom: 30px;">Manage your team's content from here.</p>
+
+        <!-- Admin Navigation Tabs -->
+        <div class="admin-tabs" id="adminTabs">
+          <button class="admin-tab active" data-section="players"><i class="fas fa-users"></i> Players</button>
+          <button class="admin-tab" data-section="gallery"><i class="fas fa-images"></i> Gallery</button>
+          <button class="admin-tab" data-section="videos"><i class="fas fa-video"></i> Videos</button>
+          <button class="admin-tab" data-section="fixtures"><i class="fas fa-calendar"></i> Fixtures</button>
+          <button class="admin-tab" data-section="news"><i class="fas fa-newspaper"></i> News</button>
+          <button class="admin-tab" data-section="sponsors"><i class="fas fa-handshake"></i> Sponsors</button>
+        </div>
+
+        <!-- Players Management -->
+        <div class="admin-panel" id="panel-players">
+          <div class="admin-panel-header">
+            <h2>Manage Players</h2>
+            <button class="btn btn-primary btn-sm" id="addPlayerBtn">
+              <i class="fas fa-plus"></i> Add Player
+            </button>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="playersTable">
+              <thead>
+                <tr>
+                  <th>Photo</th>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>#</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="playersTableBody">
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Gallery Management -->
+        <div class="admin-panel hidden" id="panel-gallery">
+          <div class="admin-panel-header">
+            <h2>Manage Gallery</h2>
+            <button class="btn btn-primary btn-sm" id="addPhotoBtn">
+              <i class="fas fa-plus"></i> Upload Photo
+            </button>
+          </div>
+          <div class="admin-gallery-grid" id="adminGalleryGrid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Videos Management -->
+        <div class="admin-panel hidden" id="panel-videos">
+          <div class="admin-panel-header">
+            <h2>Manage Videos</h2>
+            <button class="btn btn-primary btn-sm" id="addVideoBtn">
+              <i class="fas fa-plus"></i> Add Video
+            </button>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="videosTable">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Date Added</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="videosTableBody">
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Fixtures Management -->
+        <div class="admin-panel hidden" id="panel-fixtures">
+          <div class="admin-panel-header">
+            <h2>Manage Fixtures</h2>
+            <button class="btn btn-primary btn-sm" id="addFixtureBtn">
+              <i class="fas fa-plus"></i> Add Fixture
+            </button>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="fixturesTable">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Opponent</th>
+                  <th>Venue</th>
+                  <th>Score</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="fixturesTableBody">
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- News Management -->
+        <div class="admin-panel hidden" id="panel-news">
+          <div class="admin-panel-header">
+            <h2>Manage News</h2>
+            <button class="btn btn-primary btn-sm" id="addNewsBtn">
+              <i class="fas fa-plus"></i> Add News
+            </button>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="newsTable">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="newsTableBody">
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Sponsors Management -->
+        <div class="admin-panel hidden" id="panel-sponsors">
+          <div class="admin-panel-header">
+            <h2>Manage Sponsors</h2>
+            <button class="btn btn-primary btn-sm" id="addSponsorBtn">
+              <i class="fas fa-plus"></i> Add Sponsor
+            </button>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="sponsorsTable">
+              <thead>
+                <tr>
+                  <th>Logo</th>
+                  <th>Name</th>
+                  <th>Tier</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="sponsorsTableBody">
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add/Edit Player Modal -->
+  <div class="modal-overlay" id="playerFormModal">
+    <div class="modal" style="max-width: 600px;">
+      <div class="modal-header" style="padding: 25px 30px;">
+        <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('active')">
+          <i class="fas fa-times"></i>
+        </button>
+        <div>
+          <h2 id="playerFormTitle" style="color: var(--white); font-size: 1.3rem;">Add Player</h2>
+        </div>
+      </div>
+      <div class="modal-body" style="padding: 25px 30px;">
+        <form id="playerForm">
+          <input type="hidden" id="playerId">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" id="playerName" required>
+            </div>
+            <div class="form-group">
+              <label>Jersey Number *</label>
+              <input type="number" id="playerNumber" min="1" max="99" required>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label>Position *</label>
+              <select id="playerPosition" required>
+                <option value="Goalkeeper">Goalkeeper</option>
+                <option value="Defender">Defender</option>
+                <option value="Midfielder">Midfielder</option>
+                <option value="Forward">Forward</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Nationality</label>
+              <input type="text" id="playerNationality" placeholder="e.g. Nigerian">
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label>Date of Birth</label>
+              <input type="date" id="playerDob">
+            </div>
+            <div class="form-group">
+              <label>Preferred Foot</label>
+              <select id="playerFoot">
+                <option value="Right">Right</option>
+                <option value="Left">Left</option>
+                <option value="Both">Both</option>
+              </select>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label>Height (cm)</label>
+              <input type="number" id="playerHeight" placeholder="e.g. 180">
+            </div>
+            <div class="form-group">
+              <label>Weight (kg)</label>
+              <input type="number" id="playerWeight" placeholder="e.g. 75">
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label>Appearances</label>
+              <input type="number" id="playerApps" value="0" min="0">
+            </div>
+            <div class="form-group">
+              <label>Goals</label>
+              <input type="number" id="playerGoals" value="0" min="0">
+            </div>
+            <div class="form-group">
+              <label>Assists</label>
+              <input type="number" id="playerAssists" value="0" min="0">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Profile Photo</label>
+            <input type="file" id="playerPhoto" accept="image/*">
+          </div>
+          <div class="form-group">
+            <label>Biography</label>
+            <textarea id="playerBio" rows="3" placeholder="Write a brief biography..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary login-btn" id="playerFormSubmit">
+            <i class="fas fa-save"></i> Save Player
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Fixture Modal -->
+  <div class="modal-overlay" id="fixtureFormModal">
+    <div class="modal" style="max-width: 500px;">
+      <div class="modal-header" style="padding: 25px 30px;">
+        <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('active')">
+          <i class="fas fa-times"></i>
+        </button>
+        <div>
+          <h2 id="fixtureFormTitle" style="color: var(--white); font-size: 1.3rem;">Add Fixture</h2>
+        </div>
+      </div>
+      <div class="modal-body" style="padding: 25px 30px;">
+        <form id="fixtureForm">
+          <input type="hidden" id="fixtureId">
+          <div class="form-group">
+            <label>Opponent *</label>
+            <input type="text" id="fixtureOpponent" placeholder="e.g. Eagle FC" required>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label>Date *</label>
+              <input type="date" id="fixtureDate" required>
+            </div>
+            <div class="form-group">
+              <label>Time</label>
+              <input type="time" id="fixtureTime">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Venue</label>
+            <input type="text" id="fixtureVenue" placeholder="e.g. Classic XI Pro Stadium">
+          </div>
+          <div class="form-group">
+            <label>Competition</label>
+            <input type="text" id="fixtureCompetition" placeholder="e.g. Regional League">
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label>Our Score</label>
+              <input type="number" id="fixtureHomeScore" min="0" placeholder="-">
+            </div>
+            <div class="form-group">
+              <label>Their Score</label>
+              <input type="number" id="fixtureAwayScore" min="0" placeholder="-">
+            </div>
+            <div class="form-group">
+              <label>Status</label>
+              <select id="fixtureStatus">
+                <option value="upcoming">Upcoming</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary login-btn">
+            <i class="fas fa-save"></i> Save Fixture
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add News Modal -->
+  <div class="modal-overlay" id="newsFormModal">
+    <div class="modal" style="max-width: 500px;">
+      <div class="modal-header" style="padding: 25px 30px;">
+        <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('active')">
+          <i class="fas fa-times"></i>
+        </button>
+        <div>
+          <h2 style="color: var(--white); font-size: 1.3rem;">Add News</h2>
+        </div>
+      </div>
+      <div class="modal-body" style="padding: 25px 30px;">
+        <form id="newsForm">
+          <input type="hidden" id="newsId">
+          <div class="form-group">
+            <label>Headline *</label>
+            <input type="text" id="newsTitle" placeholder="News headline..." required>
+          </div>
+          <div class="form-group">
+            <label>Content *</label>
+            <textarea id="newsContent" rows="4" placeholder="News content..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label>Icon (Font Awesome class)</label>
+            <input type="text" id="newsIcon" placeholder="e.g. fas fa-trophy" value="fas fa-bolt">
+          </div>
+          <button type="submit" class="btn btn-primary login-btn">
+            <i class="fas fa-save"></i> Save News
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Sponsor Modal -->
+  <div class="modal-overlay" id="sponsorFormModal">
+    <div class="modal" style="max-width: 500px;">
+      <div class="modal-header" style="padding: 25px 30px;">
+        <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('active')">
+          <i class="fas fa-times"></i>
+        </button>
+        <div>
+          <h2 style="color: var(--white); font-size: 1.3rem;">Add Sponsor</h2>
+        </div>
+      </div>
+      <div class="modal-body" style="padding: 25px 30px;">
+        <form id="sponsorForm">
+          <input type="hidden" id="sponsorId">
+          <div class="form-group">
+            <label>Sponsor Name *</label>
+            <input type="text" id="sponsorName" required>
+          </div>
+          <div class="form-group">
+            <label>Tier *</label>
+            <select id="sponsorTier" required>
+              <option value="platinum">Platinum</option>
+              <option value="gold">Gold</option>
+              <option value="silver">Silver</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Website URL</label>
+            <input type="url" id="sponsorUrl" placeholder="https://...">
+          </div>
+          <div class="form-group">
+            <label>Logo Image</label>
+            <input type="file" id="sponsorLogo" accept="image/*">
+          </div>
+          <button type="submit" class="btn btn-primary login-btn">
+            <i class="fas fa-save"></i> Save Sponsor
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-storage-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

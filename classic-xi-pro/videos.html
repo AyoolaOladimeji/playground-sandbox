@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Classic XI Pro Videos - Match highlights, interviews, and training sessions">
+  <title>Classic XI Pro | Videos</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo-placeholder.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-placeholder.svg" alt="Classic XI Pro Logo">
+        <div class="logo-text">
+          <span>CLASSIC XI PRO</span>
+          <span>Football Club</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="players.html">Squad</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="videos.html" class="active">Videos</a>
+        <a href="fixtures.html">Fixtures</a>
+        <a href="sponsors.html">Sponsors</a>
+      </nav>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="players.html">Squad</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="videos.html" class="active">Videos</a>
+    <a href="fixtures.html">Fixtures</a>
+    <a href="sponsors.html">Sponsors</a>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1><i class="fas fa-video"></i> Videos</h1>
+      <p>Watch highlights, interviews, and training sessions</p>
+    </div>
+  </section>
+
+  <!-- Videos Section -->
+  <section class="section">
+    <div class="container">
+      <!-- Filter Buttons -->
+      <div class="filter-buttons" id="videoFilters">
+        <button class="filter-btn active" data-filter="all">All Videos</button>
+        <button class="filter-btn" data-filter="Highlights">Highlights</button>
+        <button class="filter-btn" data-filter="Full Match">Full Match</button>
+        <button class="filter-btn" data-filter="Training">Training</button>
+        <button class="filter-btn" data-filter="Interview">Interviews</button>
+      </div>
+
+      <!-- Add Video Button (visible when logged in) -->
+      <div class="text-center" id="videoAddBtn" style="margin-bottom: 30px; display: none;">
+        <button class="btn btn-primary" onclick="document.getElementById('videoAddModal').classList.add('active')">
+          <i class="fas fa-plus"></i> Add Video
+        </button>
+      </div>
+
+      <!-- Videos Grid -->
+      <div class="videos-grid" id="videosGrid">
+        <div class="loading-overlay">
+          <div class="spinner"></div>
+          <p>Loading videos...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Player Modal -->
+  <div class="video-modal" id="videoPlayerModal">
+    <button class="video-modal-close" id="videoModalClose"><i class="fas fa-times"></i></button>
+    <div class="video-modal-content" id="videoModalContent">
+      <!-- iframe inserted by JS -->
+    </div>
+  </div>
+
+  <!-- Add Video Modal -->
+  <div class="modal-overlay" id="videoAddModal">
+    <div class="modal" style="max-width: 500px;">
+      <div class="modal-header" style="padding: 25px 30px;">
+        <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('active')">
+          <i class="fas fa-times"></i>
+        </button>
+        <div>
+          <h2 style="color: var(--white); font-size: 1.3rem;">Add Video</h2>
+        </div>
+      </div>
+      <div class="modal-body" style="padding: 25px 30px;">
+        <form id="addVideoForm">
+          <div class="form-group">
+            <label>Video Title</label>
+            <input type="text" id="videoTitle" placeholder="e.g. Match Highlights vs Eagle FC" required>
+          </div>
+          <div class="form-group">
+            <label>YouTube URL</label>
+            <input type="url" id="videoUrl" placeholder="https://www.youtube.com/watch?v=..." required>
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select id="videoCategory" required>
+              <option value="Highlights">Highlights</option>
+              <option value="Full Match">Full Match</option>
+              <option value="Training">Training</option>
+              <option value="Interview">Interview</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Duration</label>
+            <input type="text" id="videoDuration" placeholder="e.g. 10:35">
+          </div>
+          <button type="submit" class="btn btn-primary login-btn">
+            <i class="fas fa-plus"></i> Add Video
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="index.html" class="logo">
+            <img src="assets/logo-placeholder.svg" alt="Classic XI Pro Logo">
+            <div class="logo-text">
+              <span>CLASSIC XI PRO</span>
+              <span>Football Club</span>
+            </div>
+          </a>
+          <p>Excellence on and off the pitch.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="players.html">Squad</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="videos.html">Videos</a>
+            <a href="fixtures.html">Fixtures</a>
+          </div>
+        </div>
+        <div>
+          <h4>The Club</h4>
+          <div class="footer-links">
+            <a href="index.html#about">About Us</a>
+            <a href="sponsors.html">Our Sponsors</a>
+          </div>
+        </div>
+        <div>
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> Classic XI Pro Stadium, Sports Avenue</li>
+            <li><i class="fas fa-envelope"></i> info@classicxipro.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 <span class="text-gold">Classic XI Pro</span> Football Club. All rights reserved.</p>
+        <p style="margin-top: 5px;"><a href="login.html" style="color: rgba(255,255,255,0.25); font-size: 0.75rem;">Admin</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-storage-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/videos.js"></script>
+</body>
+</html>
