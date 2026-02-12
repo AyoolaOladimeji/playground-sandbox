@@ -55,218 +55,26 @@ function isFirebaseReady() {
 
 const DEMO_DATA = {
   players: [
-    {
-      id: "p1",
-      name: "Samuel Adeyemi",
-      number: 1,
-      position: "Goalkeeper",
-      nationality: "Nigerian",
-      dob: "1995-03-15",
-      height: 188,
-      weight: 82,
-      foot: "Right",
-      appearances: 45,
-      goals: 0,
-      assists: 1,
-      bio: "A commanding presence between the posts, Samuel has been our first-choice goalkeeper for three seasons. Known for his incredible reflexes and vocal leadership from the back.",
-      photo: ""
-    },
-    {
-      id: "p2",
-      name: "James Okonkwo",
-      number: 4,
-      position: "Defender",
-      nationality: "Nigerian",
-      dob: "1997-08-22",
-      height: 185,
-      weight: 80,
-      foot: "Right",
-      appearances: 52,
-      goals: 3,
-      assists: 5,
-      bio: "A rock-solid center back with excellent reading of the game. James is the captain and heart of our defense.",
-      photo: ""
-    },
-    {
-      id: "p3",
-      name: "Daniel Mensah",
-      number: 5,
-      position: "Defender",
-      nationality: "Ghanaian",
-      dob: "1998-01-10",
-      height: 183,
-      weight: 78,
-      foot: "Left",
-      appearances: 40,
-      goals: 2,
-      assists: 8,
-      bio: "An athletic left-back who loves getting forward. Daniel's pace and crossing ability make him a constant threat down the flank.",
-      photo: ""
-    },
-    {
-      id: "p4",
-      name: "Michael Torres",
-      number: 3,
-      position: "Defender",
-      nationality: "Colombian",
-      dob: "1996-06-05",
-      height: 182,
-      weight: 79,
-      foot: "Right",
-      appearances: 38,
-      goals: 1,
-      assists: 3,
-      bio: "A versatile defender comfortable at both center-back and right-back. Michael brings South American flair to our backline.",
-      photo: ""
-    },
-    {
-      id: "p5",
-      name: "Ahmed Hassan",
-      number: 6,
-      position: "Midfielder",
-      nationality: "Egyptian",
-      dob: "1999-04-18",
-      height: 176,
-      weight: 72,
-      foot: "Both",
-      appearances: 48,
-      goals: 5,
-      assists: 12,
-      bio: "The engine of our midfield. Ahmed covers every blade of grass and his passing range is second to none in the team.",
-      photo: ""
-    },
-    {
-      id: "p6",
-      name: "David Okafor",
-      number: 10,
-      position: "Midfielder",
-      nationality: "Nigerian",
-      dob: "1998-11-30",
-      height: 178,
-      weight: 73,
-      foot: "Right",
-      appearances: 50,
-      goals: 15,
-      assists: 20,
-      bio: "Our creative maestro and playmaker. David's vision, technique, and ability to unlock defenses make him the most valuable player in our squad.",
-      photo: "",
-      featured: true
-    },
-    {
-      id: "p7",
-      name: "Ryan Williams",
-      number: 8,
-      position: "Midfielder",
-      nationality: "British",
-      dob: "1997-09-12",
-      height: 180,
-      weight: 76,
-      foot: "Right",
-      appearances: 42,
-      goals: 8,
-      assists: 6,
-      bio: "A box-to-box midfielder with an eye for goal. Ryan's energy and determination set the tempo for the entire team.",
-      photo: ""
-    },
-    {
-      id: "p8",
-      name: "Carlos Silva",
-      number: 7,
-      position: "Forward",
-      nationality: "Brazilian",
-      dob: "2000-02-28",
-      height: 175,
-      weight: 70,
-      foot: "Left",
-      appearances: 35,
-      goals: 18,
-      assists: 7,
-      bio: "A tricky winger with blistering pace and devastating skill moves. Carlos terrorizes defenders with his direct running style.",
-      photo: "",
-      featured: true
-    },
-    {
-      id: "p9",
-      name: "Marcus Johnson",
-      number: 9,
-      position: "Forward",
-      nationality: "American",
-      dob: "1999-07-04",
-      height: 184,
-      weight: 81,
-      foot: "Right",
-      appearances: 30,
-      goals: 22,
-      assists: 4,
-      bio: "Our deadly number 9. Marcus is a natural goalscorer with incredible positioning and finishing ability. A constant nightmare for opposing defenders.",
-      photo: "",
-      featured: true
-    },
-    {
-      id: "p10",
-      name: "Kwame Asante",
-      number: 11,
-      position: "Forward",
-      nationality: "Ghanaian",
-      dob: "2001-05-20",
-      height: 177,
-      weight: 71,
-      foot: "Right",
-      appearances: 28,
-      goals: 12,
-      assists: 9,
-      bio: "A young and exciting talent with incredible potential. Kwame's speed and creativity on the right wing have earned him rave reviews.",
-      photo: "",
-      featured: true
-    },
-    {
-      id: "p11",
-      name: "Ibrahim Diallo",
-      number: 14,
-      position: "Midfielder",
-      nationality: "Senegalese",
-      dob: "1998-12-03",
-      height: 181,
-      weight: 75,
-      foot: "Right",
-      appearances: 32,
-      goals: 2,
-      assists: 4,
-      bio: "A tough-tackling defensive midfielder who shields the back four with authority. Ibrahim reads the game superbly.",
-      photo: ""
-    },
-    {
-      id: "p12",
-      name: "Luis Fernandez",
-      number: 2,
-      position: "Defender",
-      nationality: "Spanish",
-      dob: "1996-10-15",
-      height: 179,
-      weight: 74,
-      foot: "Right",
-      appearances: 44,
-      goals: 1,
-      assists: 10,
-      bio: "An experienced right-back with a cultured left foot. Luis brings composure and experience to the defense.",
-      photo: ""
-    },
-    {
-      id: "p13",
-      name: "Peter Okechukwu",
-      number: 25,
-      position: "Goalkeeper",
-      nationality: "Nigerian",
-      dob: "2002-08-08",
-      height: 190,
-      weight: 85,
-      foot: "Right",
-      appearances: 8,
-      goals: 0,
-      assists: 0,
-      bio: "A promising young goalkeeper with great shot-stopping ability. Peter is developing rapidly as our second-choice keeper.",
-      photo: ""
-    }
+    { id: "p1", name: "Papi", number: 0, position: "Goalkeeper", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p2", name: "Bobinho", number: 1, position: "Goalkeeper", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p3", name: "Don P", number: 2, position: "Defender", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p4", name: "SOJ", number: 3, position: "Defender", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p5", name: "HHFK", number: 4, position: "Defender", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p6", name: "Tula", number: 5, position: "Defender", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p7", name: "Gabriel", number: 6, position: "Midfielder", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p8", name: "Enchy", number: 7, position: "Midfielder", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p9", name: "Niyi", number: 8, position: "Midfielder", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p10", name: "Obyno", number: 9, position: "Forward", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p11", name: "BaldRalph", number: 10, position: "Midfielder", appearances: 0, goals: 0, assists: 0, bio: "", photo: "", featured: true },
+    { id: "p12", name: "VgBc", number: 11, position: "Forward", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p13", name: "Oladimeji", number: 12, position: "Midfielder", appearances: 0, goals: 0, assists: 0, bio: "", photo: "", featured: true },
+    { id: "p14", name: "Frank", number: 13, position: "Forward", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p15", name: "Dayo", number: 14, position: "Midfielder", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p16", name: "Big Mike", number: 15, position: "Forward", appearances: 0, goals: 0, assists: 0, bio: "", photo: "", featured: true },
+    { id: "p17", name: "Ajiboy", number: 16, position: "Midfielder", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p18", name: "Olusoji", number: 17, position: "Defender", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p19", name: "Oluwasegun", number: 19, position: "Forward", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p20", name: "John C.", number: 20, position: "Midfielder", appearances: 0, goals: 0, assists: 0, bio: "", photo: "", featured: true }
   ],
 
   fixtures: [
@@ -324,7 +132,42 @@ const DEMO_DATA = {
   ]
 };
 
+// ============================================
+// LocalStorage persistence for demo mode
+// ============================================
+const STORAGE_KEY = 'classicxi_data';
+
+function loadPersistedData() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      // Merge saved data into DEMO_DATA
+      Object.keys(parsed).forEach(key => {
+        if (DEMO_DATA[key] !== undefined) {
+          DEMO_DATA[key] = parsed[key];
+        }
+      });
+    }
+  } catch (e) {
+    console.log('Could not load persisted data:', e);
+  }
+}
+
+function persistData() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(DEMO_DATA));
+  } catch (e) {
+    console.log('Could not persist data:', e);
+  }
+}
+
+// Load any previously saved data on startup
+loadPersistedData();
+
+// ============================================
 // Data access functions (works with both Firebase and demo data)
+// ============================================
 function getData(collection) {
   if (isFirebaseReady()) {
     return firebaseDb.collection(collection).get()
@@ -340,12 +183,13 @@ function addData(collection, data) {
       createdAt: firebase.firestore.FieldValue.serverTimestamp()
     }).then(docRef => ({ id: docRef.id, ...data }));
   }
-  // Demo mode: add to local array
+  // Demo mode: add to local array and persist
   const id = 'demo_' + Date.now();
   const newItem = { id, ...data };
   if (DEMO_DATA[collection]) {
     DEMO_DATA[collection].push(newItem);
   }
+  persistData();
   return Promise.resolve(newItem);
 }
 
@@ -353,13 +197,14 @@ function updateData(collection, id, data) {
   if (isFirebaseReady()) {
     return firebaseDb.collection(collection).doc(id).update(data);
   }
-  // Demo mode: update local array
+  // Demo mode: update local array and persist
   if (DEMO_DATA[collection]) {
     const index = DEMO_DATA[collection].findIndex(item => item.id === id);
     if (index > -1) {
       DEMO_DATA[collection][index] = { ...DEMO_DATA[collection][index], ...data };
     }
   }
+  persistData();
   return Promise.resolve();
 }
 
@@ -367,10 +212,11 @@ function deleteData(collection, id) {
   if (isFirebaseReady()) {
     return firebaseDb.collection(collection).doc(id).delete();
   }
-  // Demo mode: remove from local array
+  // Demo mode: remove from local array and persist
   if (DEMO_DATA[collection]) {
     DEMO_DATA[collection] = DEMO_DATA[collection].filter(item => item.id !== id);
   }
+  persistData();
   return Promise.resolve();
 }
 

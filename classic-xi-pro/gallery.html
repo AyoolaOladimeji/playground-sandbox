@@ -64,13 +64,6 @@
         <button class="filter-btn" data-filter="Team Photos">Team Photos</button>
       </div>
 
-      <!-- Upload Button (visible when logged in) -->
-      <div class="text-center" id="galleryUploadBtn" style="margin-bottom: 30px; display: none;">
-        <button class="btn btn-primary" onclick="document.getElementById('galleryUploadModal').classList.add('active')">
-          <i class="fas fa-cloud-upload-alt"></i> Upload Photos
-        </button>
-      </div>
-
       <!-- Gallery Grid -->
       <div class="gallery-grid" id="galleryGrid">
         <div class="loading-overlay">
@@ -88,44 +81,6 @@
     <button class="lightbox-nav lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
     <img src="" alt="" id="lightboxImg">
     <div class="lightbox-caption" id="lightboxCaption"></div>
-  </div>
-
-  <!-- Upload Modal -->
-  <div class="modal-overlay" id="galleryUploadModal">
-    <div class="modal" style="max-width: 500px;">
-      <div class="modal-header" style="padding: 25px 30px;">
-        <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('active')">
-          <i class="fas fa-times"></i>
-        </button>
-        <div>
-          <h2 style="color: var(--white); font-size: 1.3rem;">Upload Photo</h2>
-        </div>
-      </div>
-      <div class="modal-body" style="padding: 25px 30px;">
-        <form id="uploadPhotoForm">
-          <div class="form-group">
-            <label>Photo</label>
-            <input type="file" accept="image/*" id="photoFile" required>
-          </div>
-          <div class="form-group">
-            <label>Caption</label>
-            <input type="text" id="photoCaption" placeholder="Enter a caption..." required>
-          </div>
-          <div class="form-group">
-            <label>Category</label>
-            <select id="photoCategory" required>
-              <option value="Match Day">Match Day</option>
-              <option value="Training">Training</option>
-              <option value="Events">Events</option>
-              <option value="Team Photos">Team Photos</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary login-btn">
-            <i class="fas fa-upload"></i> Upload Photo
-          </button>
-        </form>
-      </div>
-    </div>
   </div>
 
   <!-- Footer -->

@@ -256,8 +256,45 @@ function initAdminForms() {
   const addPhotoBtn = document.getElementById('addPhotoBtn');
   if (addPhotoBtn) {
     addPhotoBtn.addEventListener('click', () => {
-      document.getElementById('galleryUploadModal')?.classList.add('active')
-        || createUploadModal();
+      const modal = document.getElementById('galleryUploadModal');
+      if (modal) {
+        const form = modal.querySelector('form');
+        if (form) form.reset();
+        modal.classList.add('active');
+      }
+    });
+  }
+
+  // Photo upload form submit
+  const adminPhotoForm = document.getElementById('adminUploadPhotoForm');
+  if (adminPhotoForm) {
+    adminPhotoForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fileInput = document.getElementById('adminPhotoFile');
+      const caption = document.getElementById('adminPhotoCaption').value.trim();
+      const category = document.getElementById('adminPhotoCategory').value;
+
+      if (!fileInput.files[0] || !caption) {
+        showToast('Please select a photo and add a caption', 'error');
+        return;
+      }
+
+      try {
+        const file = fileInput.files[0];
+        const url = await uploadFile('gallery/' + Date.now() + '_' + file.name, file);
+        await addData('gallery', {
+          caption,
+          category,
+          url,
+          date: new Date().toISOString().split('T')[0]
+        });
+        showToast('Photo uploaded successfully!', 'success');
+        adminPhotoForm.reset();
+        document.getElementById('galleryUploadModal').classList.remove('active');
+        loadAdminGallery();
+      } catch (error) {
+        showToast('Upload failed: ' + error.message, 'error');
+      }
     });
   }
 
@@ -265,8 +302,53 @@ function initAdminForms() {
   const addVideoBtn = document.getElementById('addVideoBtn');
   if (addVideoBtn) {
     addVideoBtn.addEventListener('click', () => {
-      document.getElementById('videoAddModal')?.classList.add('active')
-        || createVideoModal();
+      const modal = document.getElementById('videoAddModal');
+      if (modal) {
+        const form = modal.querySelector('form');
+        if (form) form.reset();
+        modal.classList.add('active');
+      }
+    });
+  }
+
+  // Video add form submit
+  const adminVideoForm = document.getElementById('adminAddVideoForm');
+  if (adminVideoForm) {
+    adminVideoForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const title = document.getElementById('adminVideoTitle').value.trim();
+      const url = document.getElementById('adminVideoUrl').value.trim();
+      const category = document.getElementById('adminVideoCategory').value;
+      const duration = document.getElementById('adminVideoDuration').value.trim();
+
+      if (!title || !url) {
+        showToast('Please fill in the title and YouTube URL', 'error');
+        return;
+      }
+
+      // Extract YouTube ID
+      const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\s?]+)/);
+      const youtubeId = match ? match[1] : null;
+      if (!youtubeId) {
+        showToast('Invalid YouTube URL', 'error');
+        return;
+      }
+
+      try {
+        await addData('videos', {
+          title,
+          youtubeId,
+          category,
+          duration,
+          date: new Date().toISOString().split('T')[0]
+        });
+        showToast('Video added successfully!', 'success');
+        adminVideoForm.reset();
+        document.getElementById('videoAddModal').classList.remove('active');
+        loadAdminVideos();
+      } catch (error) {
+        showToast('Failed to add video: ' + error.message, 'error');
+      }
     });
   }
 

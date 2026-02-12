@@ -66,7 +66,7 @@ function initLoginPage() {
             showToast('Login successful! (Demo Mode)', 'success');
             setTimeout(() => window.location.href = 'admin.html', 1000);
           } else {
-            showLoginError('Invalid credentials. In demo mode, use: admin@classicxipro.com / admin123');
+            showLoginError('Invalid credentials. Please check your email and password.');
           }
         }
       } catch (error) {
