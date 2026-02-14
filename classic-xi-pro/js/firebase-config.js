@@ -55,8 +55,8 @@ function isFirebaseReady() {
 
 const DEMO_DATA = {
   players: [
-    { id: "p1", name: "Papi", number: 0, position: "Goalkeeper", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
-    { id: "p2", name: "Bobinho", number: 1, position: "Goalkeeper", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p1", name: "Papi", number: 0, position: "Defender", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p2", name: "Bobinho", number: 1, position: "Midfielder", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
     { id: "p3", name: "Don P", number: 2, position: "Defender", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
     { id: "p4", name: "SOJ", number: 3, position: "Defender", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
     { id: "p5", name: "HHFK", number: 4, position: "Defender", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
@@ -67,27 +67,24 @@ const DEMO_DATA = {
     { id: "p10", name: "Obyno", number: 9, position: "Forward", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
     { id: "p11", name: "BaldRalph", number: 10, position: "Midfielder", appearances: 0, goals: 0, assists: 0, bio: "", photo: "", featured: true },
     { id: "p12", name: "VgBc", number: 11, position: "Forward", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
-    { id: "p13", name: "Oladimeji", number: 12, position: "Midfielder", appearances: 0, goals: 0, assists: 0, bio: "", photo: "", featured: true },
-    { id: "p14", name: "Frank", number: 13, position: "Forward", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p13", name: "Oladimeji", number: 12, position: "Defender", appearances: 0, goals: 0, assists: 0, bio: "", photo: "", featured: true },
+    { id: "p14", name: "Frank", number: 13, position: "Defender", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
     { id: "p15", name: "Dayo", number: 14, position: "Midfielder", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
     { id: "p16", name: "Big Mike", number: 15, position: "Forward", appearances: 0, goals: 0, assists: 0, bio: "", photo: "", featured: true },
-    { id: "p17", name: "Ajiboy", number: 16, position: "Midfielder", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
+    { id: "p17", name: "Ajiboy", number: 16, position: "Goalkeeper", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
     { id: "p18", name: "Olusoji", number: 17, position: "Defender", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
     { id: "p19", name: "Oluwasegun", number: 19, position: "Forward", appearances: 0, goals: 0, assists: 0, bio: "", photo: "" },
     { id: "p20", name: "John C.", number: 20, position: "Midfielder", appearances: 0, goals: 0, assists: 0, bio: "", photo: "", featured: true }
   ],
 
   fixtures: [
-    { id: "f1", opponent: "Eagle FC", date: "2026-02-15", time: "15:00", venue: "Classic XI Pro Stadium", competition: "Regional League", status: "upcoming" },
-    { id: "f2", opponent: "Thunder United", date: "2026-02-22", time: "16:30", venue: "Thunder Arena", competition: "Regional League", status: "upcoming" },
-    { id: "f3", opponent: "Phoenix FC", date: "2026-03-01", time: "15:00", venue: "Classic XI Pro Stadium", competition: "Cup Quarter-Final", status: "upcoming" },
-    { id: "f4", opponent: "Royal Stars", date: "2026-03-08", time: "14:00", venue: "Stars Stadium", competition: "Regional League", status: "upcoming" },
-    { id: "f5", opponent: "Victory FC", date: "2026-01-25", time: "15:00", venue: "Classic XI Pro Stadium", competition: "Regional League", homeScore: 3, awayScore: 1, status: "completed" },
-    { id: "f6", opponent: "Dynamo City", date: "2026-01-18", time: "16:00", venue: "Dynamo Park", competition: "Regional League", homeScore: 2, awayScore: 2, status: "completed" },
-    { id: "f7", opponent: "Storm FC", date: "2026-01-11", time: "15:00", venue: "Classic XI Pro Stadium", competition: "Cup Round 3", homeScore: 4, awayScore: 0, status: "completed" },
-    { id: "f8", opponent: "Falcon Athletic", date: "2026-01-04", time: "14:30", venue: "Falcon Nest", competition: "Regional League", homeScore: 1, awayScore: 2, status: "completed" },
-    { id: "f9", opponent: "United Warriors", date: "2025-12-28", time: "15:00", venue: "Classic XI Pro Stadium", competition: "Regional League", homeScore: 5, awayScore: 0, status: "completed" },
-    { id: "f10", opponent: "Metro FC", date: "2025-12-21", time: "16:00", venue: "Metro Stadium", competition: "Regional League", homeScore: 2, awayScore: 1, status: "completed" }
+    { id: "f1", opponent: "SA New Team 40", date: "2026-02-15", time: "16:00", venue: "Harold Patterson Sports Complex HP 19", competition: "Arlington U40 League", status: "upcoming" },
+    { id: "f2", opponent: "Leones FC 40", date: "2026-02-22", time: "16:00", venue: "Harold Patterson Sports Complex HP 18", competition: "Arlington U40 League", status: "upcoming" },
+    { id: "f3", opponent: "Internacional 40", date: "2026-03-01", time: "16:00", venue: "Harold Patterson Sports Complex HP 03", competition: "Arlington U40 League", status: "upcoming" },
+    { id: "f4", opponent: "Guadalajara FC 40", date: "2026-03-08", time: "14:00", venue: "Harold Patterson Sports Complex HP 02", competition: "Arlington U40 League", status: "upcoming" },
+    { id: "f5", opponent: "Viet Club 40", date: "2026-03-15", time: "16:00", venue: "Harold Patterson Sports Complex HP 02", competition: "Arlington U40 League", status: "upcoming" },
+    { id: "f6", opponent: "Leones FC 40", date: "2026-03-22", time: "16:00", venue: "Harold Patterson Sports Complex HP 19", competition: "Arlington U40 League", status: "upcoming" },
+    { id: "f7", opponent: "Internacional 40", date: "2026-03-29", time: "16:00", venue: "Harold Patterson Sports Complex HP 23", competition: "Arlington U40 League", status: "upcoming" }
   ],
 
   gallery: [
